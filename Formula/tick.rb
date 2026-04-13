@@ -5,21 +5,21 @@
 class Tick < Formula
   desc "Terminal-native portfolio and market intelligence tool"
   homepage "https://github.com/squeakycheese75/tick"
-  version "0.1.0"
+  version "0.1.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/squeakycheese75/tick/releases/download/v0.1.0/tick_0.1.0_darwin_amd64.tar.gz"
-      sha256 "7f526a0e372e143a8be233eee03ab15c82f3592defac1fddc50184b2e7f51c88"
+      url "https://github.com/squeakycheese75/tick/releases/download/v0.1.1/tick_0.1.1_darwin_amd64.tar.gz"
+      sha256 "c1bd3cf58409caf443d03f63b571d843878f03f3b0a39a13ac0377cc8fcdb901"
 
       define_method(:install) do
         bin.install "tick"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/squeakycheese75/tick/releases/download/v0.1.0/tick_0.1.0_darwin_arm64.tar.gz"
-      sha256 "ae92d68e1b6ea243e5835b5e053361eaa0cedcc493868c09e954cd1e85439266"
+      url "https://github.com/squeakycheese75/tick/releases/download/v0.1.1/tick_0.1.1_darwin_arm64.tar.gz"
+      sha256 "2e3a032008dd538ecb5c21f105eeace0f8c72462c1d7f9e6d2d332d033a02367"
 
       define_method(:install) do
         bin.install "tick"
@@ -29,18 +29,22 @@ class Tick < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/squeakycheese75/tick/releases/download/v0.1.0/tick_0.1.0_linux_amd64.tar.gz"
-      sha256 "54b47a5c6c9a2f9365d0cf11e28d6c5ea0afc2083bc0d421e171c982dba7a01c"
+      url "https://github.com/squeakycheese75/tick/releases/download/v0.1.1/tick_0.1.1_linux_amd64.tar.gz"
+      sha256 "61554e25cf4272ceb895a59ee9c699a12ae2bb02c9e4b359d5e95dbf12823a64"
       define_method(:install) do
         bin.install "tick"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/squeakycheese75/tick/releases/download/v0.1.0/tick_0.1.0_linux_arm64.tar.gz"
-      sha256 "d3990b8f188a303cddb8b8cd7a868545307ea76b4a242682a03e330e81921f08"
+      url "https://github.com/squeakycheese75/tick/releases/download/v0.1.1/tick_0.1.1_linux_arm64.tar.gz"
+      sha256 "3218b4300a1a5b3c53c4937e99ccaa755dd7e222294cd54afc05c877a01211dd"
       define_method(:install) do
         bin.install "tick"
       end
     end
+  end
+
+  test do
+    system "#{bin}/tick", "version"
   end
 end
